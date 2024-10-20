@@ -8,3 +8,10 @@ await import("./src/env.js");
 const config = {};
 
 export default config;
+
+// const path = require('path')
+// module.exports = {
+//   sassOptions: {
+//     includePaths: [path.join(__dirname, 'styles')],
+//   },
+// }
