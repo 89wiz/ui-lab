@@ -1,7 +1,7 @@
-import { useContext } from "react";
-import { WindowsState } from "~/app/providers/windows-state.provider";
+import { useContext } from 'react';
+import { WindowsState } from '~/app/providers/windows-state.provider';
 
-export default function StartTaskbar() {
+export function StartTaskbar() {
   const context = useContext(WindowsState)!;
 
   const createWindow = (_event: never) => {
@@ -10,12 +10,17 @@ export default function StartTaskbar() {
       position: { x: 0, y: 0 },
       size: { x: 300, y: 300 },
       state: "neutral",
+      showAtTaskbar: true,
+      horizontalAnchor: "left",
+      verticalAnchor: "top",
+      onActivate: (_) => { return; },
+      onDeactivate: (_) => { return; },
     });
   };
 
   return (
     <button
-      className="flex h-10 min-w-10 flex-row items-center justify-center bg-slate-800 outline-none transition-colors duration-150 hover:bg-slate-600 active:bg-slate-700 active:text-white/75"
+      className="flex h-10 min-w-10 cursor-default flex-row items-center justify-center bg-slate-800 outline-none transition-colors duration-150 hover:bg-slate-600 active:bg-slate-700 active:text-white/75"
       onClick={createWindow}
     >
       <svg
